@@ -1,6 +1,5 @@
 [build]
 builder = "nixpacks"
-buildCommand = "echo building"
 
 [deploy]
 startCommand = "hypercorn main:app --bind \"[::]:$PORT\""
