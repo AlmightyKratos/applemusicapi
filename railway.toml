@@ -4,6 +4,4 @@ buildCommand = "echo building"
 
 [deploy]
 startCommand = "uvicorn main:app"
-healthcheckPath = "/"
-healthcheckTimeout = 100
 restartPolicyType = "never"
