@@ -3,5 +3,5 @@ builder = "nixpacks"
 buildCommand = "echo building"
 
 [deploy]
-startCommand = "uvicorn main:app"
+startCommand = "uvicorn main:app port \"[::]:$PORT\""
 restartPolicyType = "never"
