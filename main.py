@@ -40,7 +40,7 @@ async def duplicates(file: UploadFile):
     print("start processing", t0.strftime("%H:%M:%S"))
     contents = await file.read()
     t1 = datetime.datetime.now()
-    print(f"t1 - {(t1-t0)}")
+    print(f"t1 - {t1-t0}")
     if file.content_type != "text/xml":
         raise HTTPException(
             status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
@@ -48,10 +48,11 @@ async def duplicates(file: UploadFile):
         )
     df = get_all_songs_df(contents)
     t2 = datetime.datetime.now()
-    print(f"t2 - {t2-t1} - {(t2-t0)}")
+    print(f"t2 - {t2-t1} - {t2-t0}")
     data = get_duplicate_songs(df)
     t3 = datetime.datetime.now()
-    print(f"t3 - {t3-t2} - {(t3-t0)}")
+    print(f"t3 - {t3-t2} - {t3-t0}")
+    print(f"total time taken: {t3-t0}")
     return JSONResponse(content=data.to_dicts())
 
 
